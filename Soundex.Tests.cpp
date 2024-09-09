@@ -5,7 +5,7 @@ TEST(SoudexTestsuite, ReplacesConsonantsWithAppropriateDigits) {
  //AAA
   char soundex[5];
   generateSoundex("AB", soundex);
-  EXPECT_STREQ(soundex,"A200");
+  EXPECT_STREQ(soundex,"A100");
 }
 
 TEST(SoudexTestsuite, testcase1) {
@@ -25,6 +25,6 @@ TEST(SoudexTestsuite, testcase2) {
 TEST(SoudexTestsuite, testcase3) {
  //AAA
   char soundex[5];
-  generateSoundex("PJAR", soundex);
-  EXPECT_STREQ(soundex,"P206");
+  generateSoundex("PJAY", soundex);
+  EXPECT_STREQ(soundex,"P200");
 }
