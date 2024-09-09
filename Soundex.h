@@ -23,23 +23,25 @@ char getSoundexCode(char c) {
 
 void generateSoundex(const char *name, char *soundex) {
     int len = strlen(name);
-    soundex[0] = toupper(name[0]);
+    soundex[0] = toupper(name[0]);  // Convert the first letter to uppercase
     int sIndex = 1;  // Start filling the code from the second position
 
-    // Generate the Soundex code for the rest of the name
-    for (int i = 1; i < len && sIndex < 4; i++) {
-        char code = getSoundexCode(name[i]);
-        if (code != '0' && code != soundex[sIndex - 1]) {
-            soundex[sIndex++] = code;  // Append code if it's valid and different from the last added
+    // Helper function to add a character to soundex if it's valid
+    void addSoundexChar(char *soundex, int *sIndex, char code) {
+        if (code != '0' && code != soundex[*sIndex - 1]) {
+            soundex[(*sIndex)++] = code;
         }
     }
 
-    // Pad with '0's if the Soundex code is less than 4 characters
-    while (sIndex < 4) {
-        soundex[sIndex++] = '0';
+    // Generate the Soundex code for the rest of the name
+    for (int i = 1; i < len && sIndex < 4; i++) {
+        addSoundexChar(soundex, &sIndex, getSoundexCode(name[i]));
     }
 
-    soundex[4] = '\0'; 
+    // Pad with '0's if the Soundex code is less than 4 characters
+    memset(&soundex[sIndex], '0', 4 - sIndex);  // Fill remaining with '0's
+    soundex[4] = '\0';  // Null-terminate the Soundex code
 }
+
 
 #endif // SOUNDEX_H
