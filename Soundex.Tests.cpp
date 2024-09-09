@@ -28,3 +28,18 @@ TEST(SoudexTestsuite, testcase3) {
   generateSoundex("PJAY", soundex);
   EXPECT_STREQ(soundex,"P200");
 }
+
+
+TEST(SoudexTestsuite, testcase4) {
+ //AAA
+  char soundex[5];
+  generateSoundex("PJAY", soundex);
+  EXPECT_STREQ(soundex,"P200");
+}
+
+TEST(SoudexTestsuite, testcase5) {
+ //AAA
+  char soundex[5];
+  generateSoundex("BPDL", soundex);
+  EXPECT_STREQ(soundex,"B134");
+}
