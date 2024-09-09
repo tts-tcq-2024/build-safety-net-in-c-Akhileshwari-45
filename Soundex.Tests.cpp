@@ -43,3 +43,23 @@ TEST(SoudexTestsuite, testcase5) {
   generateSoundex("BPDL", soundex);
   EXPECT_STREQ(soundex,"B134");
 }
+
+TEST(SoudexTestsuite, testcase6) {
+ //AAA
+  char soundex[5];
+  generateSoundex("U", soundex);
+  EXPECT_STREQ(soundex,"U000");
+}
+TEST(SoudexTestsuite, testcase7) {
+ //AAA
+  char soundex[5];
+  generateSoundex("VM", soundex);
+  EXPECT_STREQ(soundex,"V500");
+}
+
+TEST(SoudexTestsuite, testcase8) {
+ //AAA
+  char soundex[5];
+  generateSoundex("AEI", soundex);
+  EXPECT_STREQ(soundex,"A000");
+}
