@@ -20,18 +20,19 @@ char getSoundexCode(char c) {
     }
     return '0';  // Default return value for non-alphabet characters
 }
+// Helper function to add a character to soundex if it's valid
+ void addSoundexChar(char *soundex, int *sIndex, char code) 
+ {
+       if (code != '0' && code != soundex[*sIndex - 1])
+       {
+          soundex[(*sIndex)++] = code;
+      }
+ }
 
 void generateSoundex(const char *name, char *soundex) {
     int len = strlen(name);
     soundex[0] = toupper(name[0]);  // Convert the first letter to uppercase
     int sIndex = 1;  // Start filling the code from the second position
-
-    // Helper function to add a character to soundex if it's valid
-    void addSoundexChar(char *soundex, int *sIndex, char code) {
-        if (code != '0' && code != soundex[*sIndex - 1]) {
-            soundex[(*sIndex)++] = code;
-        }
-    }
 
     // Generate the Soundex code for the rest of the name
     for (int i = 1; i < len && sIndex < 4; i++) {
