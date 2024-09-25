@@ -29,55 +29,55 @@ Test Cases:
 1. Test Case Name: ReplacesConsonantsWithAppropriateDigits
 Scenario: Single character padding
 Steps:
-Given "AB" as input, then "A100" is expected.
+Given "AX" as input, then "A200" is expected.
 Requirement Specifications:
 The function should convert a single letter to a digit (based on the lookup table) and pad with zeros until the length reaches 4.
 
-2. Test Case Name: testcase1
+2. Test Case Name: IgnoresNumbersAndEncodesRemainingCharacters
 Scenario: Numbers and Letters
 Steps:
-Given "ABXY" as input, then "A120" is expected.
+Given "17AK" as input, then "1200" is expected.
 Requirement Specifications:
 The function should ignore non-alphabetic characters (numbers) and encode the alphabetic characters according to the Soundex mapping.
 
-3. Test Case Name: testcase2
+3. Test Case Name: HandlesRepeatedLettersAndDigits
 Scenario: Repeated Letters
 Steps:
-Given "CDLM" as input, then "C345" is expected.
+Given "APOO27" as input, then "A100" is expected.
 Requirement Specifications:
 The function should encode distinct consonants and ignore repeated letters, while ignoring non-alphabetic characters.
 
-4. Test Case Name: testcase3
+4. Test Case Name: ReturnsZerosForDigitOnlyInput
 Scenario: Digit-Only Input
 Steps:
-Given "PJAY" as input, then "P200" is expected.
+Given "63619156" as input, then "6000" is expected.
 Requirement Specifications:
 The function should keep the first letter or number as is and return a code consisting of zeros if the input contains only digits.
 
-5. Test Case Name: testcase4
+5. Test Case Name: ConvertsLowercaseToUppercaseAndEncodes
 Scenario: Lowercase Conversion
 Steps:
-Given "BPDL" as input, then "B134" is expected.
+Given "apoorva" as input, then "A161" is expected.
 Requirement Specifications:
 The function should convert all lowercase letters to uppercase. Only the first 4 letters should be considered; the rest should be ignored.
 
-6. Test Case Name: testcase5
+6. Test Case Name: IgnoresSpecialCharactersAndDigits
 Scenario: Special Characters and Digits
 Steps:
-Given "U" as input, then "U000" is expected.
+Given "q@!18A" as input, then "Q000" is expected.
 Requirement Specifications:
 The function should replace special characters and digits with '0', encoding only alphabetic characters if they are within the length of 4
 
-7. Test Case Name: testcase6
+7. Test Case Name: EncodesMixedCaseAndHandlesDuplicates
 Scenario: upper and lower Case with repitative as Input
 Steps:
-Given "VM" as input, then "V500" is expected.
+Given "zXPMZjS" as input, then "Z215" is expected.
 Requirement Specifications:
 The function should process all type of letters, encode them correctly, and handle duplicate letters by ignoring subsequent occurrences.
 
-8. Test Case Name: testcase7
+8. Test Case Name: EncodesFirstCharacterAndIgnoresDuplicates
 Scenario: Repitative Letters
 Steps:
-Given "AEI" as input, then "A000" is expected.
+Given "FFFFF" as input, then "F100" is expected.
 Requirement Specifications:
 The function should encode the first character and ignore subsequent duplicates, padding the code as zero.
